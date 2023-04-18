@@ -44,13 +44,15 @@ public abstract class Pers implements Fighter {
 
     @Override
     public String toString() {
+        String extra = "";
+        if (xp > 50 * Math.pow(5, level)) extra = Main.GREEN + "\nYou may level up!" + Main.BLACK;
         return name + ':' +
                 " health = " + health +
                 ", strength = " + strength +
                 ", dexterity = " + dexterity +
                 ", experience = " + xp +
                 ", level = " + level +
-                ", gold = " + gold;
+                ", gold = " + gold + extra;
     }
 
     public String getName() {

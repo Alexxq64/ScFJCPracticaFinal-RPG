@@ -57,19 +57,16 @@ public class Main {
     }
 
     private static void levelUp() throws IOException {
-        boolean isPossibleToLevelUp;
-        while (true) {
-            isPossibleToLevelUp =  hero.getXp() > 50 * Math.pow(5, hero.getLevel());
-        if (!isPossibleToLevelUp) {
-            System.out.println("Maybe next time");
-            return;
-        }
-            hero.setLevel(hero.getLevel() + 1);
+            if (hero.getXp() <= 50 * Math.pow(5, hero.getLevel())) {
+                System.out.println("Maybe next time");
+                return;
+            }
+        while (hero.getXp() > 50 * Math.pow(5, hero.getLevel())) {
             System.out.println("You can choose something to increase");
             System.out.println("1: health   2: strength   3: dexterity");
             switch (br.readLine()) {
                 case "1":
-                    hero.setHealth((int) (hero.initialHealth * Math.pow(1.2, hero.getLevel())));
+                    hero.setHealth((int) (hero.initialHealth * Math.pow(1.2, hero.getLevel() + 1)));
                     break;
                 case "2":
                     hero.setStrength((int) (hero.getStrength() * 1.5));
@@ -80,7 +77,9 @@ public class Main {
                 default:
                     System.out.println("No such item in the menu");
             }
-        System.out.println(hero);
+            hero.setLevel(hero.getLevel() + 1);
+
+            System.out.println(hero);
         }
     }
 
