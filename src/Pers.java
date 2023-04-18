@@ -7,13 +7,24 @@ public abstract class Pers implements Fighter {
     private int xp;
     private int gold;
 
-    public Pers(String name, int health, int strength, int dexterity, int xp, int gold) {
+    private int level;
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public Pers(String name, int health, int strength, int dexterity, int xp, int gold, int level) {
         this.name = name;
         this.health = health;
         this.strength = strength;
         this.dexterity = dexterity;
         this.xp = xp;
         this.gold = gold;
+        this.level = level;
     }
 
 
@@ -38,6 +49,7 @@ public abstract class Pers implements Fighter {
                 ", strength = " + strength +
                 ", dexterity = " + dexterity +
                 ", experience = " + xp +
+                ", level = " + level +
                 ", gold = " + gold;
     }
 
@@ -57,11 +69,11 @@ public abstract class Pers implements Fighter {
         this.health = health;
     }
 
-    public int getstrength() {
+    public int getStrength() {
         return strength;
     }
 
-    public void setstrength(int strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 

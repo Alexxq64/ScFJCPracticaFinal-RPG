@@ -1,6 +1,8 @@
 public class Hero extends Pers {
 
-    public Hero(String name, int health, int strength, int dexterity, int xp, int gold) {
-        super(name, health, strength, dexterity, xp, gold);
+    public int initialHealth = 100;
+
+    public Hero(String name, int health, int strength, int dexterity, int xp, int gold, int level) {
+        super(name, health, strength, dexterity, xp, gold, level);
     }
 }
